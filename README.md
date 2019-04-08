@@ -1,1 +1,0 @@
-# formation_technique_odoo

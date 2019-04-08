@@ -1,0 +1,66 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="student_list_view">
+      <field name="name">Student list</field>
+      <field name="model">university.student</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="f_name"/>
+          <field name="l_name"/>
+          <field name="sexe"/>
+          <field name="identity_card"/>
+          <field name="birthday"/>
+          <field name="registration_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit from view definition -->
+
+    <record model="ir.ui.view" id="student_form_view">
+      <field name="name">Student From</field>
+      <field name="model">university.student</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="f_name"/>
+            <field name="l_name"/>
+            <field name="sexe"/>
+            <field name="identity_card"/>
+            <field name="birthday"/>
+            <field name="registration_date"/>
+            <field name="address"/>
+            <field name="email"/>
+            <field name="phone"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="student_action_window">
+      <field name="name">student window</field>
+      <field name="res_model">university.student</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="University" id="university.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Students" id="university_student_cat" parent="university.menu_root"/>
+    <!--<menuitem name="Menu 2" id="university.menu_2" parent="university.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="List of students" id="university_student_list" parent="university_student_cat"
+              action="student_action_window"/>
+    <!--<menuitem name="Server to list" id="university" parent="university.menu_2"-->
+              <!--action="university.action_server"/>-->
+
+  </data>
+</odoo>

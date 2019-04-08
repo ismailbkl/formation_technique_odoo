@@ -1,0 +1,51 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="classroom_list_view">
+      <field name="name">Classroom list</field>
+      <field name="model">university.classroom</field>
+      <field name="arch" type="xml">
+        <tree>
+            <field name="name"/>
+            <field name="code"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit from view definition -->
+
+    <record model="ir.ui.view" id="classroom_form_view">
+      <field name="name">Classroom From</field>
+      <field name="model">university.classroom</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="name"/>
+            <field name="code"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="classroom_action_window">
+      <field name="name">classroom window</field>
+      <field name="res_model">university.classroom</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- menu categories -->
+
+    <menuitem name="Classrooms" id="university_classroom_cat" parent="university.menu_root"/>
+    <!--<menuitem name="Menu 2" id="university.menu_2" parent="university.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="List of classrooms" id="university_classroom_list" parent="university_classroom_cat"
+              action="classroom_action_window"/>
+    <!--<menuitem name="Server to list" id="university" parent="university.menu_2"-->
+              <!--action="university.action_server"/>-->
+
+  </data>
+</odoo>

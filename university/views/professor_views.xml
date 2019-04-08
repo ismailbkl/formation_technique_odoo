@@ -1,0 +1,61 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="professor_list_view">
+      <field name="name">Professor list</field>
+      <field name="model">university.professor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="f_name"/>
+          <field name="l_name"/>
+          <field name="sexe"/>
+          <field name="identity_card"/>
+          <field name="birthday"/>
+          <field name="start_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit from view definition -->
+
+    <record model="ir.ui.view" id="professor_form_view">
+      <field name="name">Professor From</field>
+      <field name="model">university.professor</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <field name="f_name"/>
+            <field name="l_name"/>
+            <field name="sexe"/>
+            <field name="identity_card"/>
+            <field name="birthday"/>
+            <field name="start_date"/>
+            <field name="address"/>
+            <field name="email"/>
+            <field name="phone"/>
+          </group>
+        </form>
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="professor_action_window">
+      <field name="name">professor window</field>
+      <field name="res_model">university.professor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <!-- menu categories -->
+
+    <menuitem name="Professors" id="university_professor_cat" parent="university.menu_root"/>
+    <!--<menuitem name="Menu 2" id="university.menu_2" parent="university.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="List of professors" id="university_professor_list" parent="university_professor_cat"
+              action="professor_action_window"/>
+    <!--<menuitem name="Server to list" id="university" parent="university.menu_2"-->
+              <!--action="university.action_server"/>-->
+
+  </data>
+</odoo>
